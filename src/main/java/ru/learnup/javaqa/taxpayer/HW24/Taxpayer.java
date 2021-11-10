@@ -3,8 +3,8 @@ package ru.learnup.javaqa.taxpayer.HW24;
 public class Taxpayer {
     private int income;
     private int expenses;
-    private int taxincome = 0;
-    private int taxincomeexpenses = 0;
+    private int taxincome;
+    private int taxincomeexpenses;
 
     public Taxpayer(int income, int expenses) {
         this.income = income;
@@ -19,28 +19,38 @@ public class Taxpayer {
         return expenses;
     }
 
-    public void incIncome(int inc) {
+    public int incIncome(int inc) {
         if (inc > 0) {
             income = income + inc;
+            return income;
+        } else {
+            return 0;
         }
     }
 
-    public void incExpenses(int inc) {
+    public int incExpenses(int inc) {
         if (inc > 0) {
             expenses = expenses + inc;
+            return expenses;
+        } else {
+            return 0;
         }
     }
 
-    public void calcTaxIncome() {
-        taxincome = income * 6 / 100;
-        System.out.println(taxincome);
+    public int taxIncome() {
         taxincome = 0;
+        taxincome = income * 6 / 100;
+        return taxincome;
     }
 
-    public void calcTaxIncomeExpenses() {
-        taxincomeexpenses = (income - expenses) * 15 / 100;
-        System.out.println(taxincomeexpenses);
+    public int taxIncomeExpenses() {
         taxincomeexpenses = 0;
+        taxincomeexpenses = (income - expenses) * 15 / 100;
+        if (taxincomeexpenses > 0) {
+            return taxincomeexpenses;
+        } else {
+            return 0;
+        }
     }
 }
 
