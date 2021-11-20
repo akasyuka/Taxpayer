@@ -11,6 +11,5 @@ public class Main {
         list.setDay(2);
         System.out.println(list.add(2, 50));
         System.out.println(list.add(2, 400));
-
     }
 }
