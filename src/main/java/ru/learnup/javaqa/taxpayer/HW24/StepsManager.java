@@ -11,6 +11,9 @@ public class StepsManager {
     }
 
     public int add(int day, int steps) {
+        if (!list.containsKey(day)) {
+            list.put(day, 0);
+        }
         list.put(day, steps + list.get(day));
         return (MAX_STEPS - list.get(day));
     }
