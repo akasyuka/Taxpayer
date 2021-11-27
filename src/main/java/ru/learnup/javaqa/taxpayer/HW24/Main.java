@@ -2,14 +2,11 @@ package ru.learnup.javaqa.taxpayer.HW24;
 
 public class Main {
     public static void main(String[] args) {
-        StepsManager list = new StepsManager();
-
-        //list.setDay(1);
-        System.out.println(list.add(1, 100));
-        System.out.println(list.add(1, 200));
-
-        //list.setDay(2);
-        System.out.println(list.add(2, 50));
-        System.out.println(list.add(2, 400));
+        StepBattle play = new StepBattle();
+        play.addSteps(1,1,1000);
+        play.addSteps(1,3,1000);
+        play.addSteps(2,1,900);
+        play.addSteps(2,2,900);
+        System.out.println(play.winner());
     }
 }
