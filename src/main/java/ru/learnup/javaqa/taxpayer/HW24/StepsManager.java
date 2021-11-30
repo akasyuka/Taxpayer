@@ -15,4 +15,9 @@ public class StepsManager {
     public int getSum() {
         return sum;
     }
+
+    public void add(int day, int steps) {
+        days.put(day,steps);
+        sum += steps;
+    }
 }

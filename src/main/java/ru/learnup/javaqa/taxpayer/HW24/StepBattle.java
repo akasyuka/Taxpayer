@@ -10,6 +10,11 @@ public class StepBattle {
     private List<StepsManager> player1 = new ArrayList<>();
     private List<StepsManager> player2 = new ArrayList<>();
 
+    public StepsManager manager;
+    public StepBattle(StepsManager manager) {
+        this.manager = manager;
+    }
+
     public void addSteps(int player, int day, int steps) {
         if (player == 1) {
             player1.add(new StepsManager(day, steps));

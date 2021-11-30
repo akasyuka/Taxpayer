@@ -33,6 +33,4 @@ public class StepsManagerTest {
 //        int expected = 1000;
 //
 //        Assertions.assertEquals(expected, actual);
-    @Test
-    public void zaglushka() {}
 }
