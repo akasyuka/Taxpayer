@@ -1,43 +1,44 @@
 package ru.learnup.javaqa.taxpayer.HW24;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class StepBattle {
-    private int sum1;
-    private int sum2;
-    private List<StepsManager> player1 = new ArrayList<>();
-    private List<StepsManager> player2 = new ArrayList<>();
 
-    public StepsManager manager;
-    public StepBattle(StepsManager manager) {
-        this.manager = manager;
+    private StepsManager manager1;
+    private StepsManager manager2;
+
+    public StepBattle(StepsManager manager1, StepsManager manager2) {
+        this.manager1 = manager1;
+        this.manager2 = manager2;
     }
+
+    public int getSumManager1() {
+        int sum;
+        sum = manager1.getSum();
+        return sum;
+    }
+
+    public int getSumManager2() {
+        int sum;
+        sum = manager2.getSum();
+        return sum;
+    }
+
 
     public void addSteps(int player, int day, int steps) {
         if (player == 1) {
-            player1.add(new StepsManager(day, steps));
+            manager1.add(day, steps);
         }
         if (player == 2) {
-            player2.add(new StepsManager(day, steps));
+            manager2.add(day, steps);
         }
-
     }
 
     public int winner() {
-        for (StepsManager day : player1) {
-            sum1 += day.getSum();
-        }
-        for (StepsManager day : player2) {
-            sum2 += day.getSum();
-        }
-        if (sum1 > sum2) {
+        if (manager1.getSum() > manager2.getSum()) {
             return 1;
         } else {
             return 2;
         }
     }
-
 }
 
