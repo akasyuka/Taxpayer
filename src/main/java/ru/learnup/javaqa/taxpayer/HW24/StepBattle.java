@@ -23,7 +23,6 @@ public class StepBattle {
         return sum;
     }
 
-
     public void addSteps(int player, int day, int steps) {
         if (player == 1) {
             manager1.add(day, steps);
@@ -36,7 +35,7 @@ public class StepBattle {
     public int winner() {
         if (manager1.getSum() > manager2.getSum()) {
             return 1;
-        } else if (manager1.getSum() < manager2.getSum()){
+        } else if (manager1.getSum() < manager2.getSum()) {
             return 2;
         } else {
             return 0;
