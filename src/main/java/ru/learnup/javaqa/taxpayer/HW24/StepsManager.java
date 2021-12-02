@@ -1,7 +1,10 @@
 package ru.learnup.javaqa.taxpayer.HW24;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
 public class StepsManager implements Comparable<StepsManager> {
     private int sum;
@@ -26,5 +29,14 @@ public class StepsManager implements Comparable<StepsManager> {
     @Override
     public int compareTo(StepsManager m2) {
         return sum - m2.getSum();
+    }
+
+    public Stream<Integer> getAllAbove(int steps) {
+        List<Integer> ret = new ArrayList<>();
+        for (Integer key : days.keySet()) {
+            ret.add(days.get(key));
+        }
+        return ret.stream()
+                .filter(p -> p > steps);
     }
 }
