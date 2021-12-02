@@ -9,8 +9,9 @@ public class StepsManagerTest {
     @Test
     public void stepsAddInc() {
         manager.add(1, 100);
+        manager.add(1, 100);
         int actual = manager.getSum();
-        int expected = 300;
+        int expected = 200;
 
         Assertions.assertEquals(expected, actual);
     }
@@ -19,7 +20,7 @@ public class StepsManagerTest {
     public void stepsAddDec() {
         manager.add(1, -100);
         int actual = manager.getSum();
-        int expected = 100;
+        int expected = -100;
 
         Assertions.assertEquals(expected, actual);
     }
