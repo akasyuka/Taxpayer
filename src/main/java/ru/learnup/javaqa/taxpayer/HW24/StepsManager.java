@@ -6,11 +6,6 @@ public class StepsManager {
     private int sum;
     private HashMap<Integer, Integer> days = new HashMap<>();
 
-    public StepsManager(int day, int steps) {
-        days.put(day, steps);
-        this.sum = steps;
-    }
-
     public int getSum() {
         return sum;
     }

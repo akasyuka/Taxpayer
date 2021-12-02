@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class StepsManagerTest {
-    StepsManager manager = new StepsManager(1, 200);
+    StepsManager manager = new StepsManager();
 
     @Test
     public void stepsAddInc() {

@@ -37,7 +37,7 @@ public class StepBattleTest {
 
     @Test
     public void battleWinner() {
-        StepBattle battle = new StepBattle(new StepsManager(1, 0), new StepsManager(1, 0));
+        StepBattle battle = new StepBattle(new StepsManager(), new StepsManager());
         battle.addSteps(1, 2, 300);
         battle.addSteps(1, 2, 300);
         battle.addSteps(2, 1, 200);
@@ -50,11 +50,11 @@ public class StepBattleTest {
 
     @Test
     public void battleGetSum() {
-        StepBattle battle = new StepBattle(new StepsManager(1, 100), new StepsManager(1, 0));
+        StepBattle battle = new StepBattle(new StepsManager(), new StepsManager());
         battle.addSteps(1, 2, 300);
         battle.addSteps(1, 2, 200);
 
-        int expected = 600;
+        int expected = 500;
         int actual = battle.getSumManager1();
 
         Assertions.assertEquals(expected, actual);

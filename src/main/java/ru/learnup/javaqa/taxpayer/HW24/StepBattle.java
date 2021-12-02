@@ -36,8 +36,10 @@ public class StepBattle {
     public int winner() {
         if (manager1.getSum() > manager2.getSum()) {
             return 1;
-        } else {
+        } else if (manager1.getSum() < manager2.getSum()){
             return 2;
+        } else {
+            return 0;
         }
     }
 }
