@@ -14,7 +14,13 @@ public class StepsManager implements Comparable<StepsManager> {
         return sum;
     }
 
-    public void add(int day, int steps) {
+    public void add(int day, int steps) throws IllegalArgumentException {
+        if ((day < 1) || (day > 365)) {
+            throw new IllegalDayException(day);
+        }
+        if (steps < 0) {
+            throw new IllegalStepsException(steps);
+        }
         if (!days.containsKey(day)) {
             days.put(day, 0);
         }

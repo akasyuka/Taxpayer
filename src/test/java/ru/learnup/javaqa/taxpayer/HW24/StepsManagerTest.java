@@ -17,15 +17,6 @@ public class StepsManagerTest {
     }
 
     @Test
-    public void stepsAddDec() {
-        manager.add(1, -100);
-        int actual = manager.getSum();
-        int expected = -100;
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
     public void compareToSum() {
         StepsManager m1 = new StepsManager();
         m1.add(4, 300);
@@ -39,4 +30,21 @@ public class StepsManagerTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void exceptionDayAbove() {
+        StepsManager m = new StepsManager();
+        Assertions.assertThrows(IllegalDayException.class, () -> m.add(1000, 100));
+    }
+
+    @Test
+    public void exceptionDayUnder() {
+        StepsManager m = new StepsManager();
+        Assertions.assertThrows(IllegalDayException.class, () -> m.add(-100, 100));
+    }
+
+    @Test
+    public void exceptionSteps() {
+        StepsManager m = new StepsManager();
+        Assertions.assertThrows(IllegalStepsException.class, () -> m.add(10, -100));
+    }
 }
