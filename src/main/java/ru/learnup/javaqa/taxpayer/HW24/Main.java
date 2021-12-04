@@ -1,6 +1,13 @@
 package ru.learnup.javaqa.taxpayer.HW24;
 
+import ru.learnup.javaqa.taxpayer.HW24.entities.Post;
+
 public class Main {
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/schema1";
+    private static final String DB_USER = "root";
+    private static final String DB_PASS = "root";
+    private static DbHelper helper = new DbHelper(DB_URL, DB_USER, DB_PASS);
+
     public static void main(String[] args) {
         //HW26
         StepBattle battle = new StepBattle(new StepsManager(), new StepsManager());
@@ -26,5 +33,18 @@ public class Main {
         //HW28
         m1.getAllAbove(200)
                 .forEach(System.out::println);
+        //HW30
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        printAllPlayers();
+    }
+
+    private static void printAllPlayers() {
+        for (Post post : helper.getAllPlayers()) {
+            System.out.println(post);
+        }
     }
 }
