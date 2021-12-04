@@ -24,6 +24,7 @@ public class StepsManager implements Comparable<StepsManager> {
         if (!days.containsKey(day)) {
             days.put(day, 0);
         }
+        //Положить в таблицу
         days.put(day, steps + days.get(day));
         sum += steps;
     }
