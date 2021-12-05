@@ -18,12 +18,26 @@ public class DbHelper {
         }
     }
 
+    public void addPlayer(Post post) {
+        try {
+            final PreparedStatement statement =
+                    connection.prepareStatement(
+                            "INSERT INTO schema1.players (player, day, steps) VALUES (?, ?, ?);");
+            statement.setString(1, post.getPlayer());
+            statement.setInt(2, post.getDay());
+            statement.setInt(3, post.getSteps());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public List<Post> getAllPlayers() {
         try {
             List<Post> result = new ArrayList<>();
             final Statement statement = connection.createStatement();
-            final ResultSet resultSet = statement.executeQuery("select * from players");
-            while (resultSet.next()){
+            final ResultSet resultSet = statement.executeQuery("select * from schema1.players");
+            while (resultSet.next()) {
                 final int id = resultSet.getInt("id");
                 final String player = resultSet.getString("player");
                 final int day = resultSet.getInt("day");
