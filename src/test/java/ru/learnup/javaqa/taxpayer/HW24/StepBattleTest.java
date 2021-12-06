@@ -8,16 +8,16 @@ import org.mockito.Mockito;
 import static org.mockito.Mockito.*;
 
 public class StepBattleTest {
-    StepsManager manager1 = Mockito.mock(StepsManager.class);
-    StepsManager manager2 = Mockito.mock(StepsManager.class);
-    StepBattle battle = new StepBattle(manager1, manager2);
+//    StepsManager manager1 = Mockito.mock(StepsManager.class);
+//    StepsManager manager2 = Mockito.mock(StepsManager.class);
+//    StepBattle battle = new StepBattle(manager1, manager2);
 
-    @BeforeEach
-    public void init() {
+//    @BeforeEach
+//    public void init() {
 //        manager1.add(1, 1000);
 //        manager1.add(3, 300);
 //        manager2.add(2, 200);
-    }
+//    }
 
     @Test
     public void checkAdd() {
