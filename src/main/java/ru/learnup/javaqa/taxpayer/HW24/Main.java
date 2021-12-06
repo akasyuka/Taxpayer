@@ -5,6 +5,8 @@ import ru.learnup.javaqa.taxpayer.HW24.entities.Post;
 
 import java.util.Scanner;
 
+import static java.lang.Integer.parseInt;
+
 public class Main {
     private static final String DB_URL = "jdbc:mysql://localhost:3306";
     private static final String DB_USER = "root";
@@ -37,26 +39,47 @@ public class Main {
 //        m1.getAllAbove(200)
 //                .forEach(System.out::println);
 //      //HW30
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        printAllPlayers();
+//        addPlayerAndPrintAll();
+        StepBattle battle = new StepBattle(new StepsManager(), new StepsManager());
+        System.out.println("До:");
         printAllPlayers();
-        addPlayerAndPrintAll();
+        System.out.println("После добавления:");
+        battle.addSteps("1", 2, 300);
+        battle.addSteps("2", 4, 500);
+        battle.addSteps("2", 2, 600);
+        printAllPlayers();
+        System.out.println("После удаления:");
+        deleteRaw();
+        printAllPlayers();
     }
-    private static void addPlayerAndPrintAll() {
+
+    static void deleteRaw() {
+
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите плеера String...");
-        final String player = scanner.nextLine();
-        System.out.println("Введите день int...");
-        final Integer day = Integer.parseInt(scanner.nextLine());
-        System.out.println("Введите шаги int...");
-        final Integer steps = Integer.valueOf(scanner.nextLine());
-        helper.addPlayer(new Post(player,day,steps));
-        printAllPlayers();
+        System.out.println("Введите id...");
+        int id = parseInt(scanner.nextLine());
+        helper.deletePlayer(id);
     }
-    private static void printAllPlayers() {
+    static void addPlayer(String player, int day, int steps) {
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Введите плеера String...");
+//        final String player = scanner.nextLine();
+//        System.out.println("Введите день int...");
+//        final Integer day = Integer.parseInt(scanner.nextLine());
+//        System.out.println("Введите шаги int...");
+//        final Integer steps = Integer.valueOf(scanner.nextLine());
+//        Integer DAYS = Integer.valueOf(day);
+//        Integer STEPS = Integer.valueOf(steps);
+//        printAllPlayers();
+        helper.addPlayer(new Post(player,day,steps));
+    }
+    static void printAllPlayers() {
         for (Post post : helper.getAllPlayers()) {
             System.out.println(post);
         }

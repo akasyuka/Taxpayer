@@ -32,6 +32,23 @@ public class DbHelper {
         }
     }
 
+    public boolean deletePlayer(int id) {
+        try {
+            final PreparedStatement statement =
+                    connection.prepareStatement(
+                            "DELETE FROM schema1.players WHERE id = ?");
+            statement.setInt(1, id);
+            final int modCount= statement.executeUpdate();
+            if (modCount > 0) {
+                return true;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public List<Post> getAllPlayers() {
         try {
             List<Post> result = new ArrayList<>();
