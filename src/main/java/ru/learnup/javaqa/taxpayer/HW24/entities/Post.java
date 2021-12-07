@@ -1,11 +1,27 @@
 package ru.learnup.javaqa.taxpayer.HW24.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name ="players")
 public class Post {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+
+    @Column
     String player;
+
+    @Column
     Integer day;
+
+    @Column
     Integer steps;
+
+    public Post() {
+
+    }
 
     public Post(Integer id, String player, Integer day, Integer steps) {
         this.id = id;
