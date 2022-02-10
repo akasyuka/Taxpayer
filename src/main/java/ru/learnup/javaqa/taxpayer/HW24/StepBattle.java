@@ -23,12 +23,12 @@ public class StepBattle {
         return sum;
     }
 
-    public void addSteps(int player, int day, int steps) {
-        if (player == 1) {
-            manager1.add(day, steps);
+    public void addSteps(String player, int day, int steps) {
+        if (player == "1") {
+            manager1.add(player, day, steps);
         }
-        if (player == 2) {
-            manager2.add(day, steps);
+        if (player == "2") {
+            manager2.add(player, day, steps);
         }
     }
 

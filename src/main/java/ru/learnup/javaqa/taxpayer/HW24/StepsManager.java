@@ -14,18 +14,24 @@ public class StepsManager implements Comparable<StepsManager> {
         return sum;
     }
 
-    public void add(int day, int steps) throws IllegalArgumentException {
+    public void add(String player, int day, int steps) throws IllegalArgumentException {
         if ((day < 1) || (day > 365)) {
             throw new IllegalDayException(day);
         }
         if (steps < 0) {
             throw new IllegalStepsException(steps);
         }
-        if (!days.containsKey(day)) {
-            days.put(day, 0);
-        }
-        days.put(day, steps + days.get(day));
+//        if (!days.containsKey(day)) {
+//            days.put(day, 0);
+//        }
+//        days.put(day, steps + days.get(day));
         sum += steps;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        Main.addPlayer(player, day, steps);
     }
 
     public Map<Integer, Integer> getMap() {
